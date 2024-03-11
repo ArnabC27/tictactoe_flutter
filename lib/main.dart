@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
@@ -33,6 +33,22 @@ class _HomePageState extends State<HomePage> {
   int OWin = 0;
   int filledBoxes = 0;
 
+
+  static var myNewFont = GoogleFonts.pressStart2p(
+    textStyle: const TextStyle(
+      color: Colors.black,
+      letterSpacing: 3,
+    )
+  );
+
+  static var myNewFontWhite = GoogleFonts.pressStart2p(
+    textStyle: const TextStyle(
+      color: Colors.white,
+      letterSpacing: 3,
+    )
+  );
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,33 +61,39 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(30.0),
+                    padding: const EdgeInsets.all(20.0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           "Player X",
-                          style: myTextStyle,
+                          style: myNewFontWhite,
+                        ),
+                        SizedBox(
+                          height: 10
                         ),
                         Text(
                           XWin.toString(),
-                          style: myTextStyle,
+                          style: myNewFontWhite,
                         ),
                       ],
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(30.0),
+                    padding: const EdgeInsets.all(20.0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           "Player O",
-                          style: myTextStyle,
+                          style: myNewFontWhite,
+                        ),
+                        SizedBox(
+                          height: 10
                         ),
                         Text(
                           OWin.toString(),
-                          style: myTextStyle,
+                          style: myNewFontWhite,
                         ),
                       ],
                     ),
