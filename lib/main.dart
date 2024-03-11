@@ -28,12 +28,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[800],
+      backgroundColor: Colors.grey.shade800,
       body: GridView.builder(
           itemCount: 9,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
           itemBuilder: (BuildContext context, int index) {
             return Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey.shade700),
+              ),
               child: Center(
                 child: Text(
                   index.toString(),
