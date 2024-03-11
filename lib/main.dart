@@ -28,6 +28,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool OTurn = true;
   List<String> displayXO = ['', '', '', '', '', '', '', '', ''];
+  var myTextStyle = TextStyle(color: Colors.white, fontSize: 30);
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +38,18 @@ class _HomePageState extends State<HomePage> {
         children: [
           Expanded(
             child: Container(
-              child: const Center(
-                child: Text(
-                  'ScoreBoard',
-                  style: TextStyle(color: Colors.white, fontSize: 30),
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Player X",
+                    style: myTextStyle,
+                  ),
+                  Text(
+                    "Player O",
+                    style: myTextStyle,
+                  ),
+                ],
               ),
             ),
           ),
