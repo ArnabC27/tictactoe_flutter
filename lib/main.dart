@@ -29,7 +29,20 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[800],
-      body: ,
+      body: GridView.builder(
+          itemCount: 9,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              child: Center(
+                child: Text(
+                  index.toString(),
+                  style: TextStyle(color: Colors.white, fontSize: 40),
+                ),
+              ),
+            );
+          }
+      ),
     );
   }
 }
