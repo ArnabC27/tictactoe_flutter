@@ -26,6 +26,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
+  bool OTurn = true;
   List<String> displayXO = ['', '', '', '', '', '', '', '', ''];
 
   @override
@@ -59,8 +60,23 @@ class _HomePageState extends State<HomePage> {
 
   void _tapped(int index) {
     setState(() {
-      displayXO[index] = 'X';
+      if(OTurn) {
+        displayXO[index] = 'O';
+      }
+      else {
+        displayXO[index] = 'X';
+      }
+      OTurn = !OTurn;
+      _checkWinner();
     });
+  }
+
+  void _checkWinner() {
+
+  }
+
+  void _showWinDialog() {
+
   }
 }
 
