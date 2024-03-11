@@ -25,7 +25,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   bool OTurn = true;
   List<String> displayXO = ['', '', '', '', '', '', '', '', ''];
 
@@ -35,7 +34,8 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.grey.shade800,
       body: GridView.builder(
           itemCount: 9,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3),
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
               onTap: () {
@@ -53,17 +53,15 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             );
-          }
-      ),
+          }),
     );
   }
 
   void _tapped(int index) {
     setState(() {
-      if(OTurn) {
+      if (OTurn) {
         displayXO[index] = 'O';
-      }
-      else {
+      } else {
         displayXO[index] = 'X';
       }
       OTurn = !OTurn;
@@ -72,11 +70,56 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _checkWinner() {
-
+    if (displayXO[0] == displayXO[1] &&
+        displayXO[0] == displayXO[2] &&
+        displayXO[0] != '') {
+      _showWinDialog();
+    }
+    if (displayXO[3] == displayXO[4] &&
+        displayXO[3] == displayXO[5] &&
+        displayXO[3] != '') {
+      _showWinDialog();
+    }
+    if (displayXO[6] == displayXO[7] &&
+        displayXO[6] == displayXO[8] &&
+        displayXO[6] != '') {
+      _showWinDialog();
+    }
+    if (displayXO[0] == displayXO[3] &&
+        displayXO[0] == displayXO[6] &&
+        displayXO[0] != '') {
+      _showWinDialog();
+    }
+    if (displayXO[1] == displayXO[4] &&
+        displayXO[1] == displayXO[7] &&
+        displayXO[1] != '') {
+      _showWinDialog();
+    }
+    if (displayXO[2] == displayXO[5] &&
+        displayXO[2] == displayXO[8] &&
+        displayXO[2] != '') {
+      _showWinDialog();
+    }
+    if (displayXO[0] == displayXO[4] &&
+        displayXO[0] == displayXO[8] &&
+        displayXO[0] != '') {
+      _showWinDialog();
+    }
+    if (displayXO[2] == displayXO[4] &&
+        displayXO[2] == displayXO[6] &&
+        displayXO[2] != '') {
+      _showWinDialog();
+    }
   }
 
   void _showWinDialog() {
-
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return const AlertDialog(
+            title: Text('Winner'),
+          );
+        }
+    );
   }
 }
-
