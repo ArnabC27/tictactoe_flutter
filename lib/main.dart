@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,36 +33,58 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade800,
-      body: GridView.builder(
-          itemCount: 9,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3),
-          itemBuilder: (BuildContext context, int index) {
-            return GestureDetector(
-              onTap: () {
-                _tapped(index);
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey.shade700),
-                ),
-                child: Center(
-                  child: Text(
-                    displayXO[index],
-                    style: TextStyle(color: Colors.white, fontSize: 40),
-                  ),
+      body: Column(
+        children: [
+          Expanded(
+            child: Container(
+              child: const Center(
+                child: Text(
+                  'ScoreBoard',
+                  style: TextStyle(color: Colors.white, fontSize: 30),
                 ),
               ),
-            );
-          }),
+            ),
+          ),
+          Expanded(
+            flex: 3,
+            child: GridView.builder(
+                itemCount: 9,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3),
+                itemBuilder: (BuildContext context, int index) {
+                  return GestureDetector(
+                    onTap: () {
+                      _tapped(index);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey.shade700),
+                      ),
+                      child: Center(
+                        child: Text(
+                          displayXO[index],
+                          style: TextStyle(color: Colors.white, fontSize: 40),
+                        ),
+                      ),
+                    ),
+                  );
+                }),
+          ),
+          Expanded(
+            child: Container(
+              color: Colors.red,
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   void _tapped(int index) {
     setState(() {
-      if (OTurn) {
+      if (OTurn && displayXO[index] == '') {
         displayXO[index] = 'O';
-      } else {
+      } else if (!OTurn && displayXO[index] == '') {
         displayXO[index] = 'X';
       }
       OTurn = !OTurn;
@@ -119,7 +142,6 @@ class _HomePageState extends State<HomePage> {
           return AlertDialog(
             title: Text('Winner is $winner'),
           );
-        }
-    );
+        });
   }
 }
