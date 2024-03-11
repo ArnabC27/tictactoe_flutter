@@ -118,10 +118,11 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       if (OTurn && displayXO[index] == '') {
         displayXO[index] = 'O';
+        OTurn = !OTurn;
       } else if (!OTurn && displayXO[index] == '') {
         displayXO[index] = 'X';
+        OTurn = !OTurn;
       }
-      OTurn = !OTurn;
       _checkWinner();
     });
   }
@@ -171,11 +172,35 @@ class _HomePageState extends State<HomePage> {
 
   void _showWinDialog(String winner) {
     showDialog(
+        barrierDismissible: false,
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text('Winner is $winner'),
+            actions: [
+              TextButton(
+                child: Text('Play Again'),
+                onPressed: () {
+                  _clearBoard();
+                  Navigator.of(context).pop();
+                },
+              )
+            ],
           );
         });
+
+    if (winner == 'X') {
+      XWin++;
+    } else if (winner == 'O') {
+      OWin++;
+    }
+  }
+
+  void _clearBoard() {
+    setState(() {
+      for (int i = 0; i < 9; i++) {
+        displayXO[i] = '';
+      }
+    });
   }
 }
