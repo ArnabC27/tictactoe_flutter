@@ -73,51 +73,51 @@ class _HomePageState extends State<HomePage> {
     if (displayXO[0] == displayXO[1] &&
         displayXO[0] == displayXO[2] &&
         displayXO[0] != '') {
-      _showWinDialog();
+      _showWinDialog(displayXO[0]);
     }
     if (displayXO[3] == displayXO[4] &&
         displayXO[3] == displayXO[5] &&
         displayXO[3] != '') {
-      _showWinDialog();
+      _showWinDialog(displayXO[3]);
     }
     if (displayXO[6] == displayXO[7] &&
         displayXO[6] == displayXO[8] &&
         displayXO[6] != '') {
-      _showWinDialog();
+      _showWinDialog(displayXO[6]);
     }
     if (displayXO[0] == displayXO[3] &&
         displayXO[0] == displayXO[6] &&
         displayXO[0] != '') {
-      _showWinDialog();
+      _showWinDialog(displayXO[0]);
     }
     if (displayXO[1] == displayXO[4] &&
         displayXO[1] == displayXO[7] &&
         displayXO[1] != '') {
-      _showWinDialog();
+      _showWinDialog(displayXO[1]);
     }
     if (displayXO[2] == displayXO[5] &&
         displayXO[2] == displayXO[8] &&
         displayXO[2] != '') {
-      _showWinDialog();
+      _showWinDialog(displayXO[2]);
     }
     if (displayXO[0] == displayXO[4] &&
         displayXO[0] == displayXO[8] &&
         displayXO[0] != '') {
-      _showWinDialog();
+      _showWinDialog(displayXO[0]);
     }
     if (displayXO[2] == displayXO[4] &&
         displayXO[2] == displayXO[6] &&
         displayXO[2] != '') {
-      _showWinDialog();
+      _showWinDialog(displayXO[2]);
     }
   }
 
-  void _showWinDialog() {
+  void _showWinDialog(String winner) {
     showDialog(
         context: context,
         builder: (BuildContext context) {
-          return const AlertDialog(
-            title: Text('Winner'),
+          return AlertDialog(
+            title: Text('Winner is $winner'),
           );
         }
     );
