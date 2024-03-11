@@ -116,14 +116,15 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _tapped(int index) {
-    filledBoxes++;
     setState(() {
       if (OTurn && displayXO[index] == '') {
         displayXO[index] = 'O';
         OTurn = !OTurn;
+        filledBoxes++;
       } else if (!OTurn && displayXO[index] == '') {
         displayXO[index] = 'X';
         OTurn = !OTurn;
+        filledBoxes++;
       }
       _checkWinner();
     });
@@ -170,6 +171,9 @@ class _HomePageState extends State<HomePage> {
         displayXO[2] != '') {
       _showWinDialog(displayXO[2]);
     }
+    else if(filledBoxes == 9){
+      _showDrawDialog();
+    }
   }
 
   void _showWinDialog(String winner) {
@@ -204,5 +208,26 @@ class _HomePageState extends State<HomePage> {
         displayXO[i] = '';
       }
     });
+    filledBoxes = 0;
+  }
+
+  void _showDrawDialog() {
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Draw'),
+            actions: [
+              TextButton(
+                child: Text('Play Again'),
+                onPressed: () {
+                  _clearBoard();
+                  Navigator.of(context).pop();
+                },
+              )
+            ],
+          );
+        });
   }
 }
