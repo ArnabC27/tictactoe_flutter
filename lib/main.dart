@@ -31,6 +31,7 @@ class _HomePageState extends State<HomePage> {
   var myTextStyle = TextStyle(color: Colors.white, fontSize: 30);
   int XWin = 0;
   int OWin = 0;
+  int filledBoxes = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +107,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Expanded(
             child: Container(
-              color: Colors.red,
+
             ),
           ),
         ],
@@ -115,6 +116,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _tapped(int index) {
+    filledBoxes++;
     setState(() {
       if (OTurn && displayXO[index] == '') {
         displayXO[index] = 'O';
