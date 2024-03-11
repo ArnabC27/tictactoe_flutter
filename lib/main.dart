@@ -114,6 +114,7 @@ class _IntroScreenState extends State<IntroScreen> with TickerProviderStateMixin
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Container(
+                      height: 50,
                       color: Colors.white,
                       child: Center(
                         child: Text(
