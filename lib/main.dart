@@ -25,6 +25,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  String displayXO = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,20 +36,27 @@ class _HomePageState extends State<HomePage> {
           itemCount: 9,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
           itemBuilder: (BuildContext context, int index) {
-            return Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey.shade700),
-              ),
-              child: Center(
-                child: Text(
-                  index.toString(),
-                  style: TextStyle(color: Colors.white, fontSize: 40),
+            return GestureDetector(
+              onTap: _tapped,
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey.shade700),
+                ),
+                child: Center(
+                  child: Text(
+                    displayXO,
+                    style: TextStyle(color: Colors.white, fontSize: 40),
+                  ),
                 ),
               ),
             );
           }
       ),
     );
+  }
+
+  void _tapped() {
+
   }
 }
 
