@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: IntroScreen(),
     );
   }
 }
@@ -54,7 +54,7 @@ class _IntroScreenState extends State<IntroScreen> with TickerProviderStateMixin
                       child: Container(
                         child: Text(
                           "TIC TAC TOE",
-                          style: myNewFontWhite.copyWith(fontSize: 30),
+                          style: myNewFontWhite.copyWith(fontSize: 25),
                         ),
                       )
                   )
@@ -78,14 +78,14 @@ class _IntroScreenState extends State<IntroScreen> with TickerProviderStateMixin
                       ),
                       child: CircleAvatar(
                         backgroundColor: Colors.grey.shade900,
+                        radius: 80.0,
                         child: Container(
                           child: Image.asset(
-                            'lib/images/tictactoelogo.png',
+                            'D:/projects/AndroidStudioProjects/tictactoe_flutter/lib/images/Tic_tac_toe.png',
                             color: Colors.white,
                             fit: BoxFit.scaleDown,
                           ),
                         ),
-                        radius: 80.0,
                       )
                     ),
                   ),
