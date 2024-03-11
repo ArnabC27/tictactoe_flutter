@@ -29,6 +29,8 @@ class _HomePageState extends State<HomePage> {
   bool OTurn = true;
   List<String> displayXO = ['', '', '', '', '', '', '', '', ''];
   var myTextStyle = TextStyle(color: Colors.white, fontSize: 30);
+  int XWin = 0;
+  int OWin = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -41,13 +43,37 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "Player X",
-                    style: myTextStyle,
+                  Padding(
+                    padding: const EdgeInsets.all(30.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Player X",
+                          style: myTextStyle,
+                        ),
+                        Text(
+                          XWin.toString(),
+                          style: myTextStyle,
+                        ),
+                      ],
+                    ),
                   ),
-                  Text(
-                    "Player O",
-                    style: myTextStyle,
+                  Padding(
+                    padding: const EdgeInsets.all(30.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Player O",
+                          style: myTextStyle,
+                        ),
+                        Text(
+                          OWin.toString(),
+                          style: myTextStyle,
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
