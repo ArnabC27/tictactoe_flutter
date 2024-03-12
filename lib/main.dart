@@ -78,10 +78,10 @@ class _IntroScreenState extends State<IntroScreen> with TickerProviderStateMixin
                       ),
                       child: CircleAvatar(
                         backgroundColor: Colors.grey.shade900,
-                        radius: 80.0,
+                        radius: 90.0,
                         child: Container(
                           child: Image.asset(
-                            'D:/projects/AndroidStudioProjects/tictactoe_flutter/lib/images/Tic_tac_toe.png',
+                            "lib/images/Tic_tac_toe.png",
                             color: Colors.white,
                             fit: BoxFit.scaleDown,
                           ),
